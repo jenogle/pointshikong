@@ -1,1 +1,7 @@
-
+[
+  "tests/test_package.py::test_admin_auth_is_staged_and_timeout_protected",
+  "tests/test_package.py::test_admin_features_present",
+  "tests/test_package.py::test_front_has_required_behavior_markers",
+  "tests/test_package.py::test_logo_uses_root_path",
+  "tests/test_package.py::test_required_files_exist"
+]

@@ -2,6 +2,7 @@ import { LINE_URL, PORTAL_URL, EVENT_TIME_LABEL, DEFAULT_FEE } from './config.js
 import { request } from './api.js';
 
 const $ = id => document.getElementById(id);
+document.body.classList.add('front-page');
 let afterModalClose = null;
 
 function showModal(title, text, { lineLink = false, afterClose = null } = {}) {
@@ -21,8 +22,8 @@ $('modalClose').addEventListener('click', closeModal);
 $('modal').addEventListener('click', e => { if (e.target === $('modal')) closeModal(); });
 
 $('app').innerHTML = `<div class="wrap">
-<header class="top"><div class="brand"><img src="/point-shikong-logo.png" alt="POINT SHIKONG"><span>POINT SHIKONG<br>BEYBLADE EVENT</span></div></header>
-<section class="hero"><h1>陀螺戰爭・爭奪積分</h1><p>Email 會作為你的參賽帳號，報名請固定同一個 Email，積分與參賽紀錄才會累積。</p><div class="quick"><div>開賽時間<b>21:30</b></div><div>報到時間<b>21:00–21:30</b></div><div class="hot">單場報名費<b>NT$200</b></div></div></section>
+<header class="top"><div class="brand"><img src="/point-shikong-logo.png" alt="POINT SHIKONG"><span>POINT SHIKONG<br>BEYBLADE EVENT</span></div><div class="arena-kicker">RANKED BATTLE / POINT RACE</div></header>
+<section class="hero"><div class="battle-grid" aria-hidden="true"></div><div class="hero-copy"><div class="arena-kicker hero-kicker">POINT SHIKONG // BATTLE SYSTEM</div><h1>陀螺戰爭・爭奪積分</h1><p>Email 會作為你的參賽帳號，報名請固定同一個 Email，積分與參賽紀錄才會累積。</p></div><div class="quick"><div>開賽時間<b>21:30</b></div><div>報到時間<b>21:00–21:30</b></div><div class="hot">單場報名費<b>NT$200</b></div></div></section>
 <section class="notice"><h2>賽事說明</h2><p>參賽者記得加入 <a href="${LINE_URL}" target="_blank" rel="noopener">官方 Line 帳號 @054wqmoa ↗</a>，以獲得最新訊息。</p><p>賽事相關活動訊息依失控事務所官方管道發布為準。保有修改活動之權利。</p><p>比賽地點：<a href="https://www.google.com/maps?daddr=243%E6%96%B0%E5%8C%97%E5%B8%82%E6%B3%B0%E5%B1%B1%E5%8D%80%E4%BB%81%E6%84%9B%E8%B7%AF76%E8%99%9F" target="_blank" rel="noopener">失控事務所（新北市泰山區仁愛路76號）↗</a></p><p>此次比賽為 8 或 16 人開賽。名額有限，額滿為止。</p><div class="rule">重要規則：比賽報到前 24 小時內取消，恕不退款。</div></section>
 <section class="section"><div class="title"><b>01</b><h2>選擇場次</h2></div><div class="layout"><main class="card"><form id="form"><div id="dates" class="dates">載入場次中…</div><input type="hidden" id="eventDate" name="event_date"><input type="hidden" id="eventFee" name="registration_fee" value="200">
 <div class="section"><div class="title"><b>02</b><h2>參賽者資料</h2></div><div class="fields"><div><label>實名 *</label><input name="full_name" required></div><div><label>暱稱 *</label><input name="nickname" required></div><div><label>電話 *</label><input name="phone" inputmode="numeric" maxlength="10" placeholder="09xxxxxxxx" required></div><div><label>Email *</label><input name="email" type="email" required></div></div></div>
